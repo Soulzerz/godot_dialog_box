@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/DialogBoxText.gd" type="Script" id=1]
+
+[node name="DialogBox" type="Polygon2D"]
+color = Color( 0.184314, 0.180392, 0.180392, 1 )
+polygon = PoolVector2Array( 32, 288, 32, 384, 624, 384, 624, 288 )
+
+[node name="DialogTextArea" type="RichTextLabel" parent="."]
+margin_left = 48.0
+margin_top = 304.0
+margin_right = 608.0
+margin_bottom = 368.0
+bbcode_enabled = true
+bbcode_text = "Welcome to the simple dialog box."
+text = "Welcome to the simple dialog box."
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+[connection signal="timeout" from="Timer" to="DialogTextArea" method="_on_Timer_timeout"]
